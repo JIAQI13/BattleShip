@@ -42,6 +42,43 @@
     flex-direction: column;
 }
 
+.submarine-container{
+    width:120px;
+    height:40px;
+    background-color: pink;
+    margin:10px;
+    display:flex;
+    flex-direction: column;
+}
+
+.cruiser-container{
+    width:120px;
+    height:40px;
+    background-color: purple;
+    margin:10px;
+    display:flex;
+    flex-direction: column;
+}
+
+.battleship-container{
+    width: 160px;
+    height:40px;
+    background-color: aqua;
+    margin:10px;
+    display:flex;
+    flex-direction: column;
+}
+
+.carrier-container{
+    width: 200px;
+    height:40px;
+    background-color: green;
+    margin:10px;
+    display:flex;
+    flex-direction: column;
+}
+
+
 .ship div{
     width: 40px;
     height: 40px;
