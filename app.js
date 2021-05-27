@@ -29,4 +29,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createBoard(userGrid,userSquares,width);
     createBoard(computerGrid,computerSquares,width);
+
+    //ships
+    const shipArray = [
+        {
+            name:'destoryer',
+            direction:[
+                [0,1],
+                [0,width]
+            ]
+        },
+        {
+            name:'submarine',
+            direction:[
+                [0,1],
+                [0,width,width*2],
+            ]
+        },
+        {
+            name:'cruiser',
+            direction:[
+                [0,1,2],
+                [0,width,width*2],
+            ]
+        },
+        {
+            name:'battleship',
+            direction:[
+                [0,1,2,3],
+                [0,width,width*2,width*3],
+            ]
+        },
+        {
+            name:'carrier',
+            direction:[
+                [0,1,2,3,4],
+                [0,width,width*2,width*3,width*4],
+            ]
+        }
+    ]
+
+    //draw the computer ships in random locations
+    function generate(ship) {
+        let randomDirection = Math.floor(Math.random() * shipArray.directions.length);
+        let current = ship.directions[randomDirection];
+        if (randomDirection === 0) direction = 1;
+        if (randomDirection === 1) direction = 10;
+        let randomStart = Math.floor(Math.random()*computerSquares.length - (ship.direction[0].length*randomDirection));
+
+    }
+
 })
