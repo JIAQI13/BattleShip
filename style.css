@@ -83,3 +83,23 @@
     width: 40px;
     height: 40px;
 }
+
+.destoryer{
+    background-color: orange;
+}
+
+.submarine{
+    background-color: pink;
+}
+
+.cruiser{
+    background-color: purple;
+}
+
+.battleship{
+    background-color: aqua;
+}
+
+.carrier{
+    background-color: green;
+}
