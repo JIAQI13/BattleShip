@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (randomDirection === 0) direction = 1;
         if (randomDirection === 1) direction = 10;
         let randomStart = Math.abs(Math.floor(Math.random() * computerSquares.length - (ship.directions[0].length * direction)));
-    
+
         const isTaken = current.some(index => computerSquares[randomStart + index].classList.contains('taken'));
         const isAtRightEdge = current.some(index => (randomStart + index) % width === width - 1);
         const isAtLeftEdge = current.some(index => (randomStart + index) % width === 0);
@@ -91,4 +91,25 @@ document.addEventListener('DOMContentLoaded', () => {
     generate(shipArray[3]);
     generate(shipArray[4]);
 
+    //rotate ships
+    let isHorizontal = true;
+    function rotate() {
+        if (isHorizontal) {
+            destroyer.classList.toggle('destroyer-container-vertical');
+            submarine.classList.toggle('submarine-container-vertical');
+            cruiser.classList.toggle('cruiser-container-vertical');
+            battleship.classList.toggle('battleship-container-vertical');
+            carrier.classList.toggle('carrier-container-vertical');
+            isHorizontal = false;
+        }
+        if (!isHorizontal) {
+            destroyer.classList.toggle('destroyer-container');
+            submarine.classList.toggle('submarine-container');
+            cruiser.classList.toggle('cruiser-container');
+            battleship.classList.toggle('battleship-container');
+            carrier.classList.toggle('carrier-container');
+            isHorizontal = true;
+        }
+    }
+    rotateButton.addEventListener('click', rotate);
 })
