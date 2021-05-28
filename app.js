@@ -112,4 +112,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     rotateButton.addEventListener('click', rotate);
+
+    //move around user ship
+    ships.forEach(ship => ship.addEventListener('dragStart', dragStart));
+    userSquares.forEach(square => square.addEventListener('dragStart', dragStart));
+    userSquares.forEach(square => square.addEventListener('dragOver', dragOver));
+    userSquares.forEach(square => square.addEventListener('dragEnter', dragEnter));
+    userSquares.forEach(square => square.addEventListener('dragLeave', dragLeave));
+    userSquares.forEach(square => square.addEventListener('dragDrop', dragDrop));
+    userSquares.forEach(square => square.addEventListener('dragEnd', dragEnd));
+
+    let selectedShipNameWithIndex = 0;
+    ships.forEach(ship => ship.addEventListener('mousedown', (e) => {
+        selectedShipNameWithIndex = e.target.id;
+    }))
+
+    function dragStart(e) {
+        draggedShip = this;
+        draggedShipLength = draggedShip.length;
+        console.log(draggedShip);
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+    }
+
+    function dragEnter(e) {
+        e.preventDefault();
+    }
+
+    function dragLeave() {
+        console.log('drag leave');
+    }
+
+    function dragDrop() {
+        let shipNameWithLastId = draggedShip.lastChild.id;
+        let shipClass = shipNameWithLastId.slice(0, -2);
+        console.log(shipClass);
+    }
+
+    function dragEnd() {
+
+    }
 })
